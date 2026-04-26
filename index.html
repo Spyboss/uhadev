@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="uhadev.com is launching soon. Full-stack developer crafting real-world systems, apps, and tools."
+    />
+    <meta name="theme-color" content="#050816" />
+    <meta property="og:title" content="uhadev.com" />
+    <meta
+      property="og:description"
+      content="Building something powerful. Coming soon."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <title>uhadev.com | Coming Soon</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050816'/%3E%3Cpath d='M18 22v13c0 6 4 10 10 10s10-4 10-10V22h-6v13c0 3-1 5-4 5s-4-2-4-5V22h-6Zm25 0h6v23h-6V22Z' fill='%238bf3ff'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #050816;
+        --bg-deep: #02030a;
+        --text: #f5f7fb;
+        --muted: #aab6ca;
+        --soft: #6d7890;
+        --accent: #7dd3fc;
+        --accent-strong: #a78bfa;
+        --line: rgba(255, 255, 255, 0.12);
+        --panel: rgba(255, 255, 255, 0.045);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: var(--bg-deep);
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 50% 10%, rgba(125, 211, 252, 0.14), transparent 34rem),
+          linear-gradient(135deg, var(--bg-deep), var(--bg) 48%, #060211);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.5;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::before,
+      body::after {
+        position: fixed;
+        z-index: -2;
+        width: 34rem;
+        height: 34rem;
+        border-radius: 999px;
+        background: rgba(125, 211, 252, 0.14);
+        filter: blur(72px);
+        opacity: 0.68;
+        content: "";
+        transform: translate3d(0, 0, 0);
+        animation: drift 18s ease-in-out infinite alternate;
+      }
+
+      body::before {
+        top: -14rem;
+        left: -12rem;
+      }
+
+      body::after {
+        right: -14rem;
+        bottom: -16rem;
+        background: rgba(167, 139, 250, 0.16);
+        animation-delay: -7s;
+      }
+
+      .page {
+        position: relative;
+        display: grid;
+        min-height: 100vh;
+        min-height: 100svh;
+        grid-template-rows: 1fr auto;
+        isolation: isolate;
+      }
+
+      .page::before {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: linear-gradient(to bottom, transparent, black 18%, black 72%, transparent);
+        content: "";
+      }
+
+      main {
+        display: grid;
+        place-items: center;
+        padding: 6rem 1.25rem 3rem;
+      }
+
+      .hero {
+        width: min(100%, 54rem);
+        text-align: center;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1.4rem;
+        padding: 0.42rem 0.78rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--panel);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        backdrop-filter: blur(16px);
+        animation: fade-up 700ms ease both;
+      }
+
+      .status::before {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 18px var(--accent);
+        content: "";
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(3.1rem, 15vw, 8.7rem);
+        font-weight: 800;
+        letter-spacing: -0.095em;
+        line-height: 0.86;
+        animation: fade-up 800ms 90ms ease both, float 7s 1.2s ease-in-out infinite;
+      }
+
+      .mark {
+        display: inline-block;
+        background: linear-gradient(110deg, #ffffff 12%, #bdefff 42%, #b7a6ff 78%, #ffffff);
+        background-size: 220% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 18px 70px rgba(125, 211, 252, 0.18);
+        animation: shine 9s ease-in-out infinite;
+      }
+
+      .subheading {
+        max-width: 46rem;
+        margin: 1.7rem auto 0;
+        color: #e9eef8;
+        font-size: clamp(1.28rem, 4vw, 2.1rem);
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        animation: fade-up 800ms 210ms ease both;
+      }
+
+      .description {
+        max-width: 35rem;
+        margin: 1rem auto 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.6vw, 1.18rem);
+        animation: fade-up 800ms 320ms ease both;
+      }
+
+      .terminal-line {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.5rem;
+        margin-top: 2rem;
+        padding: 0.58rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 0.95rem;
+        background: rgba(2, 6, 23, 0.52);
+        box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+        color: #d9f7ff;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 0.88rem;
+        letter-spacing: -0.02em;
+        backdrop-filter: blur(18px);
+        animation: fade-up 800ms 430ms ease both;
+      }
+
+      .terminal-line::before {
+        margin-right: 0.5rem;
+        color: var(--accent);
+        content: ">";
+      }
+
+      .typed {
+        display: inline-block;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 0.48rem;
+        height: 1.05em;
+        margin-left: 0.22rem;
+        background: var(--accent);
+        transform: translateY(0.12em);
+        animation: blink 1s steps(2, start) infinite;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem 1.25rem;
+        padding: 1.35rem 1.25rem 1.6rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        color: var(--soft);
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        animation: fade-in 900ms 650ms ease both;
+      }
+
+      footer nav {
+        display: flex;
+        gap: 0.85rem;
+      }
+
+      footer a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 180ms ease;
+      }
+
+      footer a:hover,
+      footer a:focus-visible {
+        color: var(--text);
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes shine {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.65;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.35);
+        }
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        to {
+          transform: translate3d(4rem, 3rem, 0) scale(1.08);
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        45% {
+          opacity: 1;
+        }
+        46%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @media (min-width: 720px) {
+        main {
+          padding-inline: 2rem;
+        }
+
+        .terminal-line {
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <main>
+        <section class="hero" aria-labelledby="site-title">
+          <p class="status">Launching soon</p>
+          <h1 id="site-title"><span class="mark">uhadev.com</span></h1>
+          <p class="subheading">Building something powerful. Coming soon.</p>
+          <p class="description">
+            Full-stack developer crafting real-world systems, apps, and tools.
+          </p>
+          <p class="terminal-line" aria-label="Launching soon">
+            <span class="typed" data-text="Launching soon.">Launching soon.</span><span class="cursor" aria-hidden="true"></span>
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; 2026 UHADEV</span>
+        <nav aria-label="Future links">
+          <a href="#" aria-label="Future project links placeholder">Links soon</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      const typed = document.querySelector(".typed");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (typed && !reduceMotion) {
+        const text = typed.dataset.text || typed.textContent;
+        typed.textContent = "";
+
+        let index = 0;
+        const type = () => {
+          typed.textContent = text.slice(0, index + 1);
+          index += 1;
+
+          if (index < text.length) {
+            window.setTimeout(type, 54);
+          }
+        };
+
+        window.setTimeout(type, 760);
+      }
+    </script>
+  </body>
+</html>
